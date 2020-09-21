@@ -6,21 +6,6 @@
 module AlgorithmicCodeExamples
   describe 'string manipulation questions' do
     describe 'How do you find the length of the longest substring without repeating characters?' do
-      # def longest_substring(str)
-      #   memo = Array.new([])
-      #   ['', *str.chars].each_cons(2) do |curr, nxt, two_ahead|
-      #     last_char = memo.last || ''
-      #     if curr.empty? || curr == nxt
-      #       memo.push('') unless (memo.last || '').empty?
-      #     else
-      #       next_val = "#{memo.pop || ''}#{curr}"
-      #       memo.push(next_val)
-      #     end
-      #   end
-      #
-      #   memo.max_by(&:length)
-      # end
-
       def longest_substring(str)
         substrings = ['', *str.split(/(\w)\1+/), ''].each_cons(3).each_with_object([]) do |(prev, current, nxt), memo|
           sub_string = current
